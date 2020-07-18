@@ -1,0 +1,32 @@
+<h2 class="text-center">Modify your castle <strong id="red-word">description</strong> so that it is even <strong id="red-word">sexier</strong> !</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-login text-left">
+        <h2 class="text-center">My castle infos</h2>
+        <br>
+        <%= simple_form_for @castle do |f| %>
+        <%= f.input :title %>
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.input :country %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <br>
+        <%= f.input :photo, as: :attachinary%>
+        <br>
+        <h3><strong>Equipments</strong></h3>
+        <%= f.input :pillow, as: :boolean, label: "Will your guest have his own pillow?" %>
+        <%= f.input :breakfast, as: :boolean, label: "Do you serve breakfast in castle?" %>
+        <br>
+        <%=  f.input :blanket_type, collection: castle::BLANKET, label: "What kind of blanket are you providing?" %>
+        <hr>
+        <%= f.button :submit, "Modify your castle", class: "btn btn-danger"%>
+        <%= link_to "Delete #{@castle.title}", castle_path(@castle),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: "btn btn-success"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

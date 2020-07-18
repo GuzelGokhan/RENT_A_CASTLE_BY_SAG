@@ -1,2 +1,48 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.4) 50%), url('background-try.jpg');">
+  <div class="banner-content">
+    <h1>SHARE A castle</h1>
+    <p>Don't sleep alone anymore ! Find a warm double castle </p>
+
+    <div class="search-bar">
+      <form action="/castles" class="form-inline padded">
+        <input type="text" class="form-control border-radius input-lg" placeholder="Paris">
+        <input type="text" name="checkin" class="form-control border-radius input-lg datepicker" placeholder="Checkin">
+        <input type="text" name="checkout" class="form-control border-radius input-lg datepicker" placeholder="Checkout">
+        <select name="" id="" class="form-control border-radius input-lg">
+          <option value="1">Man</option>
+          <option value="2">Woman</option>
+          <option value="3">Both</option>
+        </select>
+        <input type="submit" class="btn btn-danger btn-lg" value="Search">
+      </form>
+    </div>
+  </div>
+</div>
+
+<h3 class="text-center">Some of the <strong id="red-word">warmest castles</strong> and <strong id="red-word">hosts</strong> in the community </h3>
+
+<div class="container">
+  <div class="row">
+    <% @castles.last(6).each do |castle| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= link_to castle_path(castle) do %>
+      <div class="cardContainer">
+        <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path castle.photo.path, width: 400,height: 300, crop: :thumb %>')">
+          <div class="card-first-name"><%= castle.user.first_name %></div>
+          <%= cl_image_tag castle.user.photo.path, width: 50, height: 50, crop: :thumb, gravity: :face, class: "card-user avatar" %>
+        </div> <!-- fin card-image -->
+        <div class="card">
+          <div class="card-description">
+            <p><strong id="city"><%= castle.city %></strong></p>
+            <p><%= castle.title %></p>
+          </div>
+          <div class="card-price">
+            <h2> <%= castle.price %> â‚¬</h2>
+          </div> <!-- fin card-price -->
+        </div> <!-- fin card -->
+      </div> <!-- fin cardContainer -->
+      <% end %>
+    </div> <!-- fin de col -->
+    <% end %>
+  </div>
+</div>
