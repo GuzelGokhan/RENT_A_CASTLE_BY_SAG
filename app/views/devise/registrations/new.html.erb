@@ -1,5 +1,4 @@
-
-<div class="container"  style="background-image: url('/giphy.gif')">
+<div class="container" style="background-image: url('/giphy.gif')">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-1">
       <div class="form text-center" ;>
@@ -9,25 +8,22 @@
         <%= f.error_notification %>
 
         <div class="form-group">
-         <p><%= f.input :first_name, required: true %></p>
-         <p><%= f.input :gender, required: true, collection: User::GENDER %></p>
-         <p><%= f.input :email, required: true, autofocus: true %></p>
-         <p><%= f.input :password, required: true, hint: ("#{@minimum_password_length}characters minimum" if @minimum_password_length) %></p>
-         <p><%= f.input :password_confirmation, required: true %></p>
-         <p><%=  f.input :gender_preferences, collection: User::GENDER %></p>
-         <p><%=  f.input :description %></p>
-         <br>
-         <p><%=  f.input :photo, as: :attachinary, required: true %></p>
-       </div>
-       <br>
-       <div class="form-actions">
-       <%= f.button :submit, "Sign up", class:"btn btn-medium" %>
-       </div>
-       <br>
-       <hr>
-       <%= render "devise/shared/links" %>
-       <% end %>
-     </div>
-   </div>
- </div>
+          <p><%= f.input :first_name, required: true %></p>
+          <p><%= f.input :email, required: true, autofocus: true %></p>
+          <p><%= f.input :password, required: true, hint: ("#{@minimum_password_length}characters minimum" if @minimum_password_length) %></p>
+          <p><%= f.input :password_confirmation, required: true %></p>
+          <p><%=  f.input :description %></p>
+          <br>
 
+        </div>
+        <br>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class:"btn btn-medium" %>
+        </div>
+        <br>
+        <hr>
+        <%= render "devise/shared/links" %>
+        <% end %>
+      </div>
+    </div>
+  </div>

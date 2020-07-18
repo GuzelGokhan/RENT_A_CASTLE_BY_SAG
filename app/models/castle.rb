@@ -1,5 +1,5 @@
 class Castle < ApplicationRecord
-  geocoded_by :address
+ 
   after_validation :geocode, if: :address_changed?
 
 
@@ -15,5 +15,5 @@ class Castle < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
-  has_attachment :photo
+
 end

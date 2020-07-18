@@ -10,18 +10,13 @@
       <%= f.input :title, placeholder: "Warm castle with silk sheets", :label_html => { :class => "label-css"} %>
       <%= f.input :address, label: "My lovely nest is located at this address", placeholder: "36 avenue du calin" %>
       <%= f.input :city, placeholder: "Bisouville" %>
-      <%= f.input :country, priority: ["France"] %>
       <%= f.input :description, label: "A sexy description for a warm castle", placeholder: "I live in a cosy house in the countryside. I love hugs and spending the night with strangers. My castle has high tech silk sheets and a warm pink blanket. Don't hesitate: Book a night (or more)" %>
       <%= f.input :price, label: "Price per night in €", placeholder: "48" %>
       <br>
-      <%= f.input :photo, as: :attachinary, label: "Choose a nice picture for your castle" %>
       <br>
       <hr>
       <h4><strong>EQUIPEMENTS</strong> </h4>
       <br>
-      <%= f.input :pillow, as: :boolean, label: "Providing a pillow?" %>
-      <%= f.input :breakfast, as: :boolean, label: "Serving breakfast in castle?" %>
-      <%= f.input :blanket_type, collection: castle::BLANKET, label: "What kind of blanket are you providing?" %>
       <br>
       <hr>
       <%= f.button :submit, "Share my castle", class: "btn btn-danger btn-lg"%>
